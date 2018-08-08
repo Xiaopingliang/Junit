@@ -66,6 +66,10 @@ public class UnionCoin {
 
         Test.clearParams();
 
+        System.out.println("a123");
+        System.out.println("a456");
+        System.out.println("a789");
+
     }
 
     @org.junit.Test()
@@ -90,6 +94,9 @@ public class UnionCoin {
         given().params(map).post("https://app.tccpay.com/cashier/payquery").prettyPeek();
 
 
+        System.out.println("123");
+        System.out.println("456");
+        System.out.println("789");
 
 
 

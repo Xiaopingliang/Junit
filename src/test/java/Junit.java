@@ -7,13 +7,16 @@ import java.util.Map;
 
 import static io.restassured.RestAssured.*;
 
+import static javax.swing.UIManager.get;
+
 public class Junit {
 
     //方法1，直接将参数放到链接中访问
     @Test
     public void gettest(){
 
-        get("https://testerhome.com/api/v3/topics.json?limit=2&offset=0&type=last_actived").prettyPeek();
+        given().when().get("https://testerhome.com/api/v3/topics.json?limit=2&offset=0&type=last_actived").prettyPeek();
+
 
     }
 
@@ -43,7 +46,7 @@ public class Junit {
     @Test
     public void gettest4(){
 
-        get("https://testerhome.com/{topics}/{topocid}","topics",12192).prettyPeek();
+        given().when().get("https://testerhome.com/{topics}/{topocid}","topics",12192).prettyPeek();
 
     }
 
@@ -51,7 +54,7 @@ public class Junit {
     @Test
     public void Response(){
 
-        Response response = get("https://testerhome.com/api/v3/topics.json?limit=2&offset=0&type=last_actived");
+        Response response = given().when().get("https://testerhome.com/api/v3/topics.json?limit=2&offset=0&type=last_actived");
 
         List list = response.jsonPath().getList("topics");
 
@@ -60,6 +63,10 @@ public class Junit {
         String id  =  response.jsonPath().getString("topics[1].id");
 
         System.out.println(id);
+
+        System.out.println("b123");
+        System.out.println("b456");
+        System.out.println("b789");
 
 
 
